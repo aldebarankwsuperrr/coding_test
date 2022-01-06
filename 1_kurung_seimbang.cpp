@@ -2,9 +2,11 @@
 #include <string>
 
 bool seimbang (bool value, short low, short high, std::string a){
-    if (low <= high and a.length() % 2 == 0 and value == true){
-        if ((a[low] == a[high]+1) || (a[low] == a[high]+2)){ return seimbang ( true, low+1, high-1, a); }
-        
+    if (low <= high and value == true){
+        if ( (a[low]+1 == a[high]) || (a[low]+2 == a[high]) ){ 
+            return seimbang ( true, low+1, high-1, a); 
+        }
+        return false;
     }
     return value;
 }

@@ -15,17 +15,31 @@ class strukturdata{
 class node{
     public:
         node* next;
+        node* prev = NULL;
         int value;
+
 };
 
+
 class linkedlist : public strukturdata{
-    private:
+    protected:
         node* current = NULL;
         int isempty();
     public:
         void insert(int);
         void print();
         void remove();
+};
+
+class dlinkedlist : public linkedlist{
+    private:
+        node* tail = NULL;
+
+    public: 
+        void headinsert(int);
+        void tailinsert(int);
+        void headremove();
+        void tailremove();
 };
 
 class stack : public strukturdata{

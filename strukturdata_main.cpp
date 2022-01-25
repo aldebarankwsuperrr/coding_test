@@ -2,7 +2,7 @@
 
 #include "strukturdata.hpp"
 int main (){
-    
+      
     // stack
     stack data1 = stack(5);
 
@@ -52,5 +52,28 @@ int main (){
     std::cout << "\n";
     data2->print();
 
+    std::cout << "\n=========\n";
+    std::cout << "Double Linked List";
+    std::cout << "\n=========\n";
+    dlinkedlist* data3 = new dlinkedlist;
+
+
+    for (int i = -1; i > -3;i--){
+        data3->headinsert(i);
+    }
+
+    for (int i = 1; i < 3;i++){
+        data3->tailinsert(i);
+    }
+
+    data3->print();
+    std::cout <<"\n";
+    data3->tailremove();
+    data3->headremove();
+    data3->tailremove();
+    data3->headremove();
+    std::cout <<"\n";
+    data3->print();
+    
     return 0;
 }

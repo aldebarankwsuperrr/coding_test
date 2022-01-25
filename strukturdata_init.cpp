@@ -23,8 +23,70 @@ void linkedlist::insert(int value){
     current = newnode;
 }
 
+void dlinkedlist::headinsert(int value){
+    node* newnode = new node;
+    newnode->value = value;
+    if (linkedlist::isempty() == 1){
+        newnode->prev = NULL;
+        newnode->next = NULL;
+        tail = newnode;
+        current = tail;
+    }else{
+        newnode->next = current;
+        current->prev = newnode;
+        newnode->prev = NULL;
+        current = newnode;
+    }
+}
+
+void dlinkedlist::tailinsert(int value){
+    node* newnode = new node;
+    newnode->value = value;
+    if (isempty() == 1){
+        newnode->next = NULL;
+        newnode->prev = NULL;
+        tail = newnode;
+        current = tail;
+    }else{
+        newnode->next = NULL;
+        newnode->prev = tail;
+        tail->next = newnode;
+        tail = newnode;
+    }
+}
+
+void dlinkedlist::headremove(){
+    if (isempty() == 1){
+        std::cout << "Maaf List Kosong\n";
+    }else if (current == tail){
+        std::cout << current->value << " Keluar" << std::endl;
+        current = NULL;
+        tail = current;
+    }
+    else{
+        std::cout << this->current->value  << " Keluar" << std::endl;
+        current = current->next;
+        current->prev = NULL;
+    }
+}
+
+void dlinkedlist::tailremove(){
+    if (isempty() == 1){
+        std::cout << "Maaf List Kosong\n";
+    }else if (tail == current){
+        std::cout << tail->value << " Keluar" << std::endl;
+        tail = NULL;
+        current = tail;
+    }
+    else{
+        std::cout << this->tail->value << " Keluar" << std::endl;
+        this->tail = this->tail->prev;
+        this->tail->next = NULL;
+    }
+}
+
 void linkedlist::print(){
-    if (current == NULL){
+    if (isempty() == 1){
         std::cout << "Maaf Kosong\n";
     }
     else{
